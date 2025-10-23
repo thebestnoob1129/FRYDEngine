@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="FRYDEngine/FRYDEngine.vcxproj" Id="acd759c6-2c5d-49aa-b050-637b64fe30a5" />
+</Solution>
