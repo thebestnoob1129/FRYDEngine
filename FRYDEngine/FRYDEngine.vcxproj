@@ -128,18 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FRYDEngine.cpp" />
-    <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\Physics.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\EditorCamera.h" />
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\GameObject3D.h" />
     <ClInclude Include="src\Physics.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\UICamera.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

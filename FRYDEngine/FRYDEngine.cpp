@@ -1,67 +1,48 @@
 // https://www.youtube.com/watch?v=UoAsDlUwjy0&t
-//#D Imports 3:44:02
+//3D Imports 3:44:02
+using namespace std;
+
 #include <iostream>
 #include <raylib.h>
 
 #include "src/Game.h"
-
-using namespace std;
+#include "src/EditorCamera.h"
+#include "src/UICamera.h"
 
 Game game;
-Camera2D camera2D;
-Camera3D camera3D;
+UICamera uiCamera;
+EditorCamera editorCamera;
 
 Color inputInducator = RED;
 
-Mesh cubeMesh;
-Model cubeModel;
-Image cubeImage;
-Texture cubeTexture;
-Vector3 modelPosition = { 0.0f, 0.0f, 0.0f };
-
-
 static void Start() {
+
 	game.Start();
-
-	camera2D.target = { 0.0f, 0.0f };
-	camera2D.offset = { 0.0f, 10.0f };
-	camera2D.rotation = 0.0f;
-	camera2D.zoom = 3.0f;
-
-	camera3D.position = { 0.0f, 30.0f, 30.0f };
-	camera3D.target = { 0.0f, 0.0f, 0.0f };
-	camera3D.up = { 0.0f, 1.0f, 0.0f };
-	camera3D.fovy = 45.0f;
-	camera3D.projection = CAMERA_PERSPECTIVE;
-
-	cubeMesh = GenMeshSphere(5.0f, 5.0f, 10.0f);
-	cubeModel = LoadModelFromMesh(cubeMesh);
-	cubeImage = GenImageGradientLinear(20, 20, 1, BLUE, GREEN);
-	cubeTexture = LoadTextureFromImage(cubeImage);
-	SetMaterialTexture(&cubeModel.materials[0], MATERIAL_MAP_ALBEDO, cubeTexture);
+	uiCamera.Start();
+	editorCamera.Start();
 	
 }
 
 static void Update() {
 	if (game.IsRunning) {
 		game.Update();
+		uiCamera.Update();
+		editorCamera.Update();
 	}
 }
 
 static void Draw2D() {
 
-	DrawText("Welcome to FRYD Engine!", 190, 200, 20, LIGHTGRAY);
-
+	DrawText("Welcome to FRYD Engine!", 10, 200, 8, LIGHTGRAY);
+	DrawRectangle(10, 10, 20, 20, inputInducator);
+	game.Draw2D();
+	
 }
 
 static void Draw3D() {
 
-	modelPosition.y = sinf(GetTime()) * 5.0f;
-	cubeModel.transform = MatrixTranslate(modelPosition.x, modelPosition.y, modelPosition.z);
-
 	DrawGrid(10, 1.0f);
-	DrawModel(cubeModel, modelPosition, 1.0f, GREEN);
-
+	game.Draw3D();
 }
 
 int main()
@@ -71,7 +52,6 @@ int main()
 	
 	InitWindow(screenWidth, screenHeight, "FRYD Engine");
 	SetTargetFPS(60);
-	cout << "FRYD Engine Initialized!" << endl;
 
 	Start();
 
@@ -89,20 +69,17 @@ int main()
 
 
 		// Update 3D
-		BeginMode3D(camera3D);
+		BeginMode3D(editorCamera.camera);
 		
 		Draw3D();
 		
 		EndMode3D();
 
 		// Update 2D
-		BeginMode2D(camera2D);
+		BeginMode2D(uiCamera.camera);
 
-		DrawRectangle(10, 10, 20, 20, inputInducator);
 		Draw2D();
 		
-		game.Draw();
-
 		EndMode2D();
 
 		// Final Draw Calls
