@@ -133,6 +133,8 @@
     <ClCompile Include="src\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Frame2D.h" />
+    <ClInclude Include="src\CollisionManager.h" />
     <ClInclude Include="src\EditorCamera.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameObject3D.h" />

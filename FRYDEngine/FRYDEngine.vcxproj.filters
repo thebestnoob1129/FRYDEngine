@@ -53,5 +53,11 @@
     <ClInclude Include="src\GameObject3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Frame2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CollisionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

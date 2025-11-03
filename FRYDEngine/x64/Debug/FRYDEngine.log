@@ -1,4 +1,19 @@
 ﻿  FRYDEngine.cpp
+C:\Users\soner\Documents\GitHub\FRYDEngine\FRYDEngine\src\CollisionManager.h(70,14): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'FRYDEngine.cpp')
+  
+C:\Users\soner\Documents\GitHub\FRYDEngine\FRYDEngine\src\EditorCamera.h(76,73): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  (compiling source file 'FRYDEngine.cpp')
+  
+C:\Users\soner\Documents\GitHub\FRYDEngine\FRYDEngine\src\EditorCamera.h(79,73): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  (compiling source file 'FRYDEngine.cpp')
+  
+C:\Users\soner\Documents\GitHub\FRYDEngine\FRYDEngine\src\EditorCamera.h(82,58): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  (compiling source file 'FRYDEngine.cpp')
+  
+C:\Users\soner\Documents\GitHub\FRYDEngine\FRYDEngine\src\EditorCamera.h(85,58): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  (compiling source file 'FRYDEngine.cpp')
+  
   FRYDEngine.vcxproj -> C:\Users\soner\Documents\GitHub\FRYDEngine\x64\Debug\FRYDEngine.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

@@ -1,4 +1,6 @@
 #pragma once
+#ifndef PHYSICS_H
+#define PHYSICS_H
 #include <raylib.h>
 #include <raymath.h>
 #include <iostream>
@@ -27,4 +29,6 @@ class Physics {
 				rect1.y < rect2.y + rect2.height &&
 				rect1.y + rect1.height > rect2.y);
 	}
+	
 };
+#endif
