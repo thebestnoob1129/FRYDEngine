@@ -10,6 +10,7 @@
 #include <algorithm>
 
 #include "Physics.h"
+#include "CollisionManager.h"
 
 inline Physics globalPhysics;
 
@@ -163,39 +164,6 @@ public:
 			DrawRay(left, RED);
 		}
 
-	}
-
-
-	// --- Collision helpers -------------------------------------------------
-
-	// Compute an axis-aligned bounding box centered on `position`.
-	// `scale` is treated as full size (width, height, depth), matching Draw* usage.
-	BoundingBox GetBoundingBox() const {
-		Vector3 half = { scale.x * 0.5f, scale.y * 0.5f, scale.z * 0.5f };
-		BoundingBox box{};
-		box.min = Vector3Subtract(position, half);
-		box.max = Vector3Add(position, half);
-		return box;
-	}
-
-	// Approximate bounding sphere radius (useful for SPHERE shape)
-	float GetBoundingSphereRadius() const {
-		// For spheres, assume scale.x is diameter; otherwise use largest half-extent.
-		if (shapeType == SPHERE) return scale.x * 0.5f;
-		return fmaxf(fmaxf(scale.x, scale.y), scale.z) * 0.5f;
-	}
-
-	// Return approximate mass (fallback if mass left as default)
-	float GetMass() const {
-		// If mass explicitly set (>0) return it, otherwise approximate from volume
-		if (mass > 0.0f) return mass;
-		// Approximate volume: for simplicity use box volume as fallback
-		return fabsf(scale.x * scale.y * scale.z);
-	}
-
-	// Simple clamp helper
-	static float Clampf(float v, float a, float b) {
-		return fmaxf(a, fminf(b, v));
 	}
 
 };
